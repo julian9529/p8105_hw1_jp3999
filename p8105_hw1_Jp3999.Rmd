@@ -15,7 +15,7 @@ library(tidyverse)
 Create a data frame with the specific elements
 
 ```{r}
- prob1_df 
+ prob1_df =
   tibble(
     samp = rnorm(10),
    samp_gt_0 = samp > 0,
