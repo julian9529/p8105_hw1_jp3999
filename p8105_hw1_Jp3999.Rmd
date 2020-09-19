@@ -14,20 +14,20 @@ library(tidyverse)
 
 Create a data frame with the specific elements
 
-```{r}
- prob1_df =
+```{r create_df}
+prob1_df = 
   tibble(
     samp = rnorm(10),
-   samp_gt_0 = samp > 0,
-  char_vec = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
-  factor_vec = factor(c("low","low","low", "mod", "mod", "mod", "mod", "high", "high", "high"))
-)
+    samp_gt_0 = samp > 0,
+    char_vec = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
+    factor_vec = factor(c("low", "low", "low", "mod", "mod", "mod", "mod", "high", "high", "high"))
+  )
 ```
 
 
  Take the mean of each variable in my data frame. 
 
-```{r}
+```{r mean_pull_var}
 mean(pull(prob1_df, samp))
 mean(pull(prob1_df, samp_gt_0))
 mean(pull(prob1_df, char_vec))
@@ -41,6 +41,52 @@ as.numeric(pull(prob1_df, samp))
 as.numeric(pull(prob1_df, samp_gt_0))
 as.numeric(pull(prob1_df, char_vec))
 as.numeric(pull(prob1_df, factort_vec))
+```
+
+install.packages("palmerpenguins")
+
+```{r}
+data("penguins", package = "palmerpenguins")
+mean(pull(penguins,flipper_length_mm))
+as.numeric(pull(penguins,flipper_length_mm))
+
+```
+
+
+??penguins
+
+
+```{r}
+head(penguins) 
+plot(bill_length_mm,flipper_length_mm, xlab = 'bill length', ylab = 'flipper length', main='characteristics of penguins' )
+
+points(bill_length_mm[species=='Adelie'],flipper_length_mm[species=='Adelie'],pch=20, col='red')
+points(bill_length_mm[species=='Gentoo'],flipper_length_mm[species=='Gentoo'],pch=20, col='blue')
+points(bill_length_mm[species=='Chinstrap'],flipper_length_mm[species=='Chinstrap'],pch=20, col='green')
+```
+
+
+```{r}
+nrow(penguins)
+ncol(penguins)
+```
+
+
+```{r}
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm)) + geom_point(aes(color = species))
+```
+
+
+
+```{r}
+penguins = tibble(
+  x = bill_length_mm 
+  y = flipper_length_mm,
+)
+ggplot(penguins, aes(x = x)) + geom_histogram()
+
+
+ggplot(penguins, aes(x = x, y = y)) + geom_point()
 ```
 
 
