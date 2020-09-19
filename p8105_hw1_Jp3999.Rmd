@@ -4,7 +4,7 @@ author: Julian Ponce
 output: github_document
 ---
 
-This is my solution to HW1
+This is my solution to HW1 
 
 ```{r}
 library(tidyverse)
@@ -31,7 +31,7 @@ prob1_df =
 mean(pull(prob1_df, samp))
 mean(pull(prob1_df, samp_gt_0))
 mean(pull(prob1_df, char_vec))
-mean(pull(prob1_df, factort_vec))
+mean(pull(prob1_df, factor_vec))
 ```
 
 Take mean of numbers 
@@ -40,12 +40,13 @@ Take mean of numbers
 as.numeric(pull(prob1_df, samp))
 as.numeric(pull(prob1_df, samp_gt_0))
 as.numeric(pull(prob1_df, char_vec))
-as.numeric(pull(prob1_df, factort_vec))
+as.numeric(pull(prob1_df, factor_vec))
 ```
 
-install.packages("palmerpenguins")
+Problem 2
 
-```{r}
+
+```{r_means}
 data("penguins", package = "palmerpenguins")
 mean(pull(penguins,flipper_length_mm))
 as.numeric(pull(penguins,flipper_length_mm))
@@ -53,8 +54,7 @@ as.numeric(pull(penguins,flipper_length_mm))
 ```
 
 
-
-```{r}
+```{r_data_description}
 
 ??penguins
 nrow(penguins)
@@ -62,34 +62,23 @@ ncol(penguins)
 ```
 
 
-```{r}
+
+```{r_Scatter_plot_1}
 head(penguins) 
 plot(bill_length_mm,flipper_length_mm, xlab = 'bill length', ylab = 'flipper length', main='characteristics of penguins' )
 
 points(bill_length_mm[species=='Adelie'],flipper_length_mm[species=='Adelie'],pch=20, col='red')
 points(bill_length_mm[species=='Gentoo'],flipper_length_mm[species=='Gentoo'],pch=20, col='blue')
 points(bill_length_mm[species=='Chinstrap'],flipper_length_mm[species=='Chinstrap'],pch=20, col='green')
+
 ```
 
 
-
-```{r}
+```{r_Scatter_plot_2}
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm)) + geom_point(aes(color = species))
+
+ggsave("penguins_scatter_plot.pdf")
 ```
-
-
-
-```{r}
-penguins = tibble(
-  x = bill_length_mm 
-  y = flipper_length_mm,
-)
-ggplot(penguins, aes(x = x)) + geom_histogram()
-
-
-ggplot(penguins, aes(x = x, y = y)) + geom_point()
-```
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
