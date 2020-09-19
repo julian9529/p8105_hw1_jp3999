@@ -1,0 +1,40 @@
+---
+title: "Homework1"
+author: Julián Ponce
+output: html_document
+---
+This is my solution to HW1
+```{r}
+library (tidyverse)
+```
+
+## Problem 1
+Create a data frame with the specific elements
+
+```{r}
+prob1_df = 
+tibble(
+samp = rnorm(10)
+samp_gt_o = samp > 0
+char_vec = c("a")
+  factor_vec = factor (c("low"))
+)
+```
+
+Take the mean of each variable in my data frame. 
+
+```{r}
+mean(pull(prob1_df, samp))
+mean(pull(prob1_df, samp_gt_0))
+mean(pull(prob1_df, char_vec))
+mean(pull(prob1_df, factort_vec))
+```
+
+Take mean of numbers 
+
+```{r}
+as.numeric(pull(prob1_df, samp))
+as.numeric(pull(prob1_df, samp_gt_0))
+as.numeric(pull(prob1_df, char_vec))
+as.numeric(pull(prob1_df, factort_vec))
+```
