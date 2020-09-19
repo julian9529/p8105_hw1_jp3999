@@ -14,6 +14,36 @@ library(tidyverse)
 
 Create a data frame with the specific elements
 
+```{r}
+ prob1_df 
+  tibble(
+    samp = rnorm(10),
+   samp_gt_0 = samp > 0,
+  char_vec = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
+  factor_vec = factor(c("low","low","low", "mod", "mod", "mod", "mod", "high", "high", "high"))
+)
+```
+
+
+ Take the mean of each variable in my data frame. 
+
+```{r}
+mean(pull(prob1_df, samp))
+mean(pull(prob1_df, samp_gt_0))
+mean(pull(prob1_df, char_vec))
+mean(pull(prob1_df, factort_vec))
+```
+
+Take mean of numbers 
+
+```{r}
+as.numeric(pull(prob1_df, samp))
+as.numeric(pull(prob1_df, samp_gt_0))
+as.numeric(pull(prob1_df, char_vec))
+as.numeric(pull(prob1_df, factort_vec))
+```
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
