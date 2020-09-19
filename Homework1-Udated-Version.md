@@ -19,6 +19,10 @@ library(tidyverse)
     ## x dplyr::filter() masks stats::filter()
     ## x dplyr::lag()    masks stats::lag()
 
+## Problem 1
+
+Create a data frame with the specific elements
+
 ## R Markdown
 
 This is an R Markdown document. Markdown is a simple formatting syntax
