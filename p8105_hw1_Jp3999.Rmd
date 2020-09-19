@@ -53,7 +53,13 @@ as.numeric(pull(penguins,flipper_length_mm))
 ```
 
 
+
+```{r}
+
 ??penguins
+nrow(penguins)
+ncol(penguins)
+```
 
 
 ```{r}
@@ -65,11 +71,6 @@ points(bill_length_mm[species=='Gentoo'],flipper_length_mm[species=='Gentoo'],pc
 points(bill_length_mm[species=='Chinstrap'],flipper_length_mm[species=='Chinstrap'],pch=20, col='green')
 ```
 
-
-```{r}
-nrow(penguins)
-ncol(penguins)
-```
 
 
 ```{r}
